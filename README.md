@@ -3,7 +3,10 @@
 [![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_act_as_tenant.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_act_as_tenant)
 [![codecov](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant/branch/main/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant)
 
-<!-- Explain what your extension does. -->
+
+This extension adds multi-tenant support to solidus using the row-level tenancy [acts_as_tenant](https://github.com/ErwinM/acts_as_tenant/commits/master/) gem.
+
+It adds tenant scoping to a configurabale set of models and adds a console utility to switch between tenants.
 
 ## Installation
 
@@ -21,7 +24,31 @@ bin/rails generate solidus_act_as_tenant:install
 
 ## Usage
 
-<!-- Explain how to use your extension once it's been installed. -->
+See the [acts_as_tenant](https://github.com/ErwinM/acts_as_tenant) gem for an explanation of how tenant scoping works.
+
+To configure this extension for your project, see:
+
+- The generated migration files
+- The generated tenant_aware_models.yml file
+- The generated initializer.rb file
+
+
+There is also a console utility that can be used to simply manage tenants in the console.
+To use it, you can add it to your `~/.irbrc` file or `~/.pryrc` file:
+
+```ruby
+if defined?(Rails)
+  TS = SolidusActAsTenant::Utils::TenantSelector.new
+
+  IRB.conf[:IRB_RC] = proc do
+    #   * TS.ask             => anytime in console, to switch tenant from a list
+    #   * TS.current         => same as Apartment::Tenant.current
+    #   * TS.tenants         => hash of tenants. Example: { 0 => "Demo Company" }
+    #   * TS.switch_tenant!(tenant_name) => same as ActsAsTenant.current_tenant = Tenant.find_by(name: tenant_name)
+    TS.ask
+  end
+end
+```
 
 ## Development
 
