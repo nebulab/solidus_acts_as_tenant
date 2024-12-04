@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Ikraam Ghoor']
   spec.email = 'consult.ikraam@gmail.com'
 
-  spec.summary = 'TODO: Write a short summary, because RubyGems requires one.'
-  spec.description = 'TODO: Write a longer description or delete this line.'
+  spec.summary = 'Adds tenant functionality to solidus using the row level acts_as_tenant gem'
+  spec.description = 'Adds tenant functionality to solidus using the row level acts_as_tenant gem'
   spec.homepage = 'https://github.com/solidusio-contrib/solidus_act_as_tenant#readme'
   spec.license = 'BSD-3-Clause'
 
@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables = files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'acts_as_tenant', '~> 1.0.1'
   spec.add_dependency 'solidus_core', ['>= 2.0.0', '< 5']
   spec.add_dependency 'solidus_support', '~> 0.5'
 
