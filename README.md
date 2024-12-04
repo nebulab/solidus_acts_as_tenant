@@ -70,4 +70,4 @@ Please refer to the [dedicated page](https://github.com/solidusio/solidus/wiki/H
 
 ## License
 
-Copyright (c) 2024 Ikraam Ghoor, released under the New BSD License.
+Copyright (c) 2024 Solidus Contrib, released under the New BSD License.
