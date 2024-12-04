@@ -1,0 +1,5 @@
+bump:
+  recurse: false
+  file: 'lib/solidus_act_as_tenant/version.rb'
+  message: Bump SolidusActAsTenant to %{version}
+  tag: true
