@@ -1,0 +1,95 @@
+# Any model that is already defined and has an a tenant_id column can be added to this list.
+# It is not restricted to the Solidus models so it can be used for any model that is inherited from a gem.
+
+# It is importnant to also note that any unique indexes on the database will need to replaced with a unique index on scoped to the tenant_id column.
+
+# Format:
+  # - [Class name, [uniqueness attributes to update with tenant scope]]
+  # The uniqueness attributes array are optional for cases where there is already a uniqueness validation on the model that are not scoped to the tenant_id column.
+
+# Notes regarding Solidus models:
+  # These are are classes that are created in this extention because they are not defined in Solidus:
+    # [Spree::ProductTaxon, []],
+    # [Spree::ReimbursementCredit, []],
+
+  # These are classes that don't need a tenancy but may be desired:
+    # [Spree::Country, []],
+    # [Spree::State, []],
+    # [Spree::PermissionSet, []],
+    # [Spree::Role, [:name]],
+    # [Spree::RolePermission, []],
+
+  # These are not needed at all as they are internal to Solidus (and may cause issues):
+    # [Spree::OrderMutex, []],
+
+
+---
+- [<%= ::Spree.user_class.to_s %>, [email]]
+- [Spree::Address, []]
+- [Spree::AdjustmentReason, [name, code]]
+- [Spree::Adjustment, []]
+- [Spree::Asset, []]
+- [Spree::Calculator, []]
+- [Spree::Carton, []]
+- [Spree::CreditCard, []]
+- [Spree::CustomerReturn, []]
+- [Spree::InventoryUnit, []]
+- [Spree::LineItemAction, []]
+- [Spree::LineItem, []]
+- [Spree::LogEntry, []]
+- [Spree::OptionType, [name]]
+- [Spree::OptionValue, [name]]
+- [Spree::OptionValuesVariant, []]
+- [Spree::Order, []]
+- [Spree::PaymentCaptureEvent, []]
+- [Spree::PaymentMethod, []]
+- [Spree::Payment, []]
+- [Spree::Preference, [key]]
+- [Spree::Price, []]
+- [Spree::ProductOptionType, []]
+- [Spree::ProductProperty, []]
+- [Spree::Product, [slug]]
+- [Spree::Property, []]
+- [Spree::RefundReason, [name]]
+- [Spree::Refund, []]
+- [Spree::ReimbursementType, [name]]
+- [Spree::Reimbursement, []]
+- [Spree::ReturnAuthorization, []]
+- [Spree::ReturnItem, []]
+- [Spree::ReturnReason, []]
+- [Spree::RoleUser, []]
+- [Spree::Shipment, []]
+- [Spree::ShippingCategory, []]
+- [Spree::ShippingMethodCategory, []]
+- [Spree::ShippingMethodStockLocation, []]
+- [Spree::ShippingMethodZone, []]
+- [Spree::ShippingMethod, []]
+- [Spree::ShippingRateTax, []]
+- [Spree::StateChange, []]
+- [Spree::ShippingRate, []]
+- [Spree::StockItem, []]
+- [Spree::StockLocation, [code]]
+- [Spree::StockMovement, []]
+- [Spree::StoreCreditCategory, []]
+- [Spree::StoreCreditEvent, []]
+- [Spree::StoreCreditType, []]
+- [Spree::StoreCredit, []]
+- [Spree::StorePaymentMethod, []]
+- [Spree::Store, [code]]
+- [Spree::StoreShippingMethod, []]
+- [Spree::StoreCreditReason, [name]]
+- [Spree::TaxCategory, [name]]
+- [Spree::Taxonomy, [name]]
+- [Spree::Taxon, []]
+- [Spree::TaxRate, []]
+- [Spree::TaxRateTaxCategory, []]
+- [Spree::UnitCancel, []]
+- [Spree::UserAddress, []]
+- [Spree::UserStockLocation, []]
+- [Spree::VariantPropertyRuleCondition, []]
+- [Spree::VariantPropertyRuleValue, []]
+- [Spree::VariantPropertyRule, []]
+- [Spree::Variant, [sku]]
+- [Spree::WalletPaymentSource, []]
+- [Spree::ZoneMember, []]
+- [Spree::Zone, [name]]
