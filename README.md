@@ -1,6 +1,6 @@
 # Solidus Act As Tenant
 
-[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_act_as_tenant.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_act_as_tenant)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/nebulab/solidus_acts_as_tenant/tree/Add-acts_as_tenant-to-Solidus.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nebulab/solidus_acts_as_tenant/tree/Add-acts_as_tenant-to-Solidus)
 [![codecov](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant/branch/main/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant)
 
 
