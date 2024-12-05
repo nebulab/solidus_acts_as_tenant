@@ -2,9 +2,7 @@
 
 module SolidusActAsTenant
   class Configuration
-    # Define here the settings for this extension, e.g.:
-    #
-    # attr_accessor :my_setting
+    attr_accessor :tenant_aware_models
   end
 
   class << self
