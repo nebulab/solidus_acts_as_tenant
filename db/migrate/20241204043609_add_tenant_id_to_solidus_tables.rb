@@ -1,4 +1,4 @@
-class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.2]
+class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
   # These are tables that don't need a tenancy but may be desired:
   # spree_countries (also remove "iso" uniqueness index)
   # spree_states
