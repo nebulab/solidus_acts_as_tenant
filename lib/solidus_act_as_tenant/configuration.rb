@@ -2,7 +2,7 @@
 
 module SolidusActAsTenant
   class Configuration
-    attr_accessor :tenant_aware_models
+    attr_accessor :tenant_aware_models, :tenant_column_name, :acts_as_tenant_args, :class_name
   end
 
   class << self

@@ -51,13 +51,13 @@ module SolidusActAsTenant
       end
 
       def tenant_names
-        @tenant_names ||= ::Spree::Tenant.pluck(:name).sort
+        @tenant_names ||= ::SolidusActAsTenant.config.class_name.constantize.pluck(:name).sort
       end
 
       def switch(tenant_name)
         return false unless tenants.value?(tenant_name)
 
-        tenant = ::Spree::Tenant.find_by(name: tenant_name)
+        tenant = ::SolidusActAsTenant.config.class_name.constantize.find_by(name: tenant_name)
         ActsAsTenant.current_tenant = tenant
         true
       end

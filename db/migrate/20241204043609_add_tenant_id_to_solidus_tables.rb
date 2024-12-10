@@ -1,4 +1,6 @@
 class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
+  # If using a different tenant model, you will need to change the :tenant_id column that is added to the tables.
+
   # These are tables that don't need a tenancy but may be desired:
   # spree_countries (also remove "iso" uniqueness index)
   # spree_states

@@ -1,4 +1,5 @@
 class CreateSpreeTenants < ActiveRecord::Migration[7.0]
+  # If using a different tenant model, you will need to create a migration for it and remove this one.
   def change
     create_table :spree_tenants do |t|
       t.string :name

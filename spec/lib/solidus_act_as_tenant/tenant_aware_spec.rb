@@ -1,6 +1,6 @@
 describe SolidusActAsTenant::TenantAware do
   describe '#setup_tenant_aware_models' do
-    let!(:tenant) { Spree::Tenant.find_or_create_by!(name: 'Test') }
+    let!(:tenant) { ::SolidusActAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test') }
     let!(:tenant2) { create(:tenant, name: 'Test2') }
 
     SolidusActAsTenant.config.tenant_aware_models.each do |klass, validator_attributes|

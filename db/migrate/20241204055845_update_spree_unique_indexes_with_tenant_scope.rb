@@ -1,4 +1,5 @@
 class UpdateSpreeUniqueIndexesWithTenantScope < ActiveRecord::Migration[7.0]
+  # If using a different tenant model, you will need to change the :tenant_id column name in the following indexes.
   def up
     remove_index :spree_preferences, name: :index_spree_preferences_on_key
     remove_index :spree_products, name: :index_spree_products_on_slug

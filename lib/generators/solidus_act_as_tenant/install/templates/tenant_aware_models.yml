@@ -1,11 +1,11 @@
-# Any model that is already defined and has an a tenant_id column can be added to this list.
+# Any model that is already defined and has an a tenant column can be added to this list.
 # It is not restricted to the Solidus models so it can be used for any model that is inherited from a gem.
 
-# It is importnant to also note that any unique indexes on the database will need to replaced with a unique index on scoped to the tenant_id column.
+# It is importnant to also note that any unique indexes on the database will need to replaced with a unique index on scoped to the tenant column.
 
 # Format:
   # - [Class name, [uniqueness attributes to update with tenant scope]]
-  # The uniqueness attributes array are optional for cases where there is already a uniqueness validation on the model that are not scoped to the tenant_id column.
+  # The uniqueness attributes array are optional for cases where there is already a uniqueness validation on the model that are not scoped to the tenant column.
 
 # Notes regarding Solidus models:
   # These are are classes that are created in this extention because they are not defined in Solidus:
