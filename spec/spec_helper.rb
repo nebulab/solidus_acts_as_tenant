@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 

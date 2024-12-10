@@ -1,4 +1,7 @@
 class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
+  # If using a different tenant model, you will need to change the ::SolidusActAsTenant.config.tenant_column_name
+  # that is added to the tables.
+
   # These are tables that don't need a tenancy but may be desired:
   # spree_countries (also remove "iso" uniqueness index)
   # spree_states
@@ -86,15 +89,15 @@ class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
 
   def up
     TABLES.each do |table|
-      add_column table, :tenant_id, :bigint
-      add_index table, :tenant_id
+      add_column table, ::SolidusActAsTenant.config.tenant_column_name, :bigint
+      add_index table, ::SolidusActAsTenant.config.tenant_column_name
     end
   end
 
   def down
     TABLES.each do |table|
       remove_index table
-      remove_column table, :tenant_id
+      remove_column table, ::SolidusActAsTenant.config.tenant_column_name
     end
   end
 end

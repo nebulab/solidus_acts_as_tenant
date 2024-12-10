@@ -12,7 +12,8 @@ module SolidusActAsTenant
           Module.new do
             @validator_attributes = validator_attributes
             define_singleton_method(:prepended) do |base|
-              base.acts_as_tenant :tenant, class_name: 'Spree::Tenant'
+              options = ::SolidusActAsTenant.config.acts_as_tenant_args
+              base.acts_as_tenant(*options[0..-2], **options.last)
 
               @validator_attributes&.each do |attribute|
                 TenantAware.update_uniqueness_validation(base, attribute)
@@ -30,7 +31,7 @@ module SolidusActAsTenant
         raise "No uniqueness validator found for #{attribute} on #{base}" unless validator
 
         new_options = validator.options.dup
-        new_options[:scope] = Array(new_options[:scope]).push(:tenant_id)
+        new_options[:scope] = Array(new_options[:scope]).push(::SolidusActAsTenant.config.tenant_column_name)
 
         remove_existing_validation(base, attribute)
         base.validates_uniqueness_of attribute, **new_options
