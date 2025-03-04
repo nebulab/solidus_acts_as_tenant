@@ -1,5 +1,5 @@
 class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
-  # If using a different tenant model, you will need to change the ::SolidusActAsTenant.config.tenant_column_name
+  # If using a different tenant model, you will need to change the ::SolidusActsAsTenant.config.tenant_column_name
   # that is added to the tables.
 
   # These are tables that don't need a tenancy but may be desired:
@@ -89,15 +89,15 @@ class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
 
   def up
     TABLES.each do |table|
-      add_column table, ::SolidusActAsTenant.config.tenant_column_name, :bigint
-      add_index table, ::SolidusActAsTenant.config.tenant_column_name
+      add_column table, ::SolidusActsAsTenant.config.tenant_column_name, :bigint
+      add_index table, ::SolidusActsAsTenant.config.tenant_column_name
     end
   end
 
   def down
     TABLES.each do |table|
       remove_index table
-      remove_column table, ::SolidusActAsTenant.config.tenant_column_name
+      remove_column table, ::SolidusActsAsTenant.config.tenant_column_name
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe SolidusActAsTenant do
+RSpec.describe SolidusActsAsTenant do
   describe '.configuration' do
     it 'returns the same configuration instance' do
       expect(described_class.configuration).to eq(described_class.configuration)
@@ -13,7 +13,7 @@ RSpec.describe SolidusActAsTenant do
 
   describe '.configure' do
     it 'yields the configuration instance' do
-      expect { |b| described_class.configure(&b) }.to yield_with_args(SolidusActAsTenant::Configuration)
+      expect { |b| described_class.configure(&b) }.to yield_with_args(SolidusActsAsTenant::Configuration)
     end
 
     it 'allows configuring through a block' do

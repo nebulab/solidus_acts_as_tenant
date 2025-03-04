@@ -1,9 +1,9 @@
-describe SolidusActAsTenant::TenantAware do
+describe SolidusActsAsTenant::TenantAware do
   describe '#setup_tenant_aware_models' do
-    let!(:tenant) { ::SolidusActAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test') }
+    let!(:tenant) { ::SolidusActsAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test') }
     let!(:tenant2) { create(:tenant, name: 'Test2') }
 
-    SolidusActAsTenant.config.tenant_aware_models.each do |klass, validator_attributes|
+    SolidusActsAsTenant.config.tenant_aware_models.each do |klass, validator_attributes|
       describe "for #{klass}" do
         it 'has a tenant accessor and the current tenant is already set', set_tenant: true do
           expect(klass.constantize.new.tenant).to eq tenant

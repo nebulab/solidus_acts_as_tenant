@@ -6,14 +6,14 @@ RSpec.configure do |config|
   config.before(:each, set_tenant: true) do
     unless ::ActsAsTenant.current_tenant
       ::ActsAsTenant.current_tenant =
-        ::SolidusActAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test')
+        ::SolidusActsAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test')
     end
   end
 
   config.before(:suite, set_tenant: true) do
     unless ::ActsAsTenant.current_tenant
       ::ActsAsTenant.current_tenant =
-        ::SolidusActAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test')
+        ::SolidusActsAsTenant.config.class_name.constantize.find_or_create_by!(name: 'Test')
     end
   end
 

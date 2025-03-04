@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-module SolidusActAsTenant
+module SolidusActsAsTenant
   # TenantAware automatically adds multi-tenant support to models
   # by adding tenant scoping and updating uniqueness validations to be tenant-aware.
   module TenantAware
     class << self
       def setup_tenant_aware_models
-        tenant_aware_models = SolidusActAsTenant.config.tenant_aware_models || []
+        tenant_aware_models = SolidusActsAsTenant.config.tenant_aware_models || []
 
         tenant_aware_models.each do |klass, validator_attributes|
           Module.new do
             @validator_attributes = validator_attributes
             define_singleton_method(:prepended) do |base|
-              options = ::SolidusActAsTenant.config.acts_as_tenant_args
+              options = ::SolidusActsAsTenant.config.acts_as_tenant_args
               base.acts_as_tenant(*options[0..-2], **options.last)
 
               @validator_attributes&.each do |attribute|
@@ -31,7 +31,7 @@ module SolidusActAsTenant
         raise "No uniqueness validator found for #{attribute} on #{base}" unless validator
 
         new_options = validator.options.dup
-        new_options[:scope] = Array(new_options[:scope]).push(::SolidusActAsTenant.config.tenant_column_name)
+        new_options[:scope] = Array(new_options[:scope]).push(::SolidusActsAsTenant.config.tenant_column_name)
 
         remove_existing_validation(base, attribute)
         base.validates_uniqueness_of attribute, **new_options

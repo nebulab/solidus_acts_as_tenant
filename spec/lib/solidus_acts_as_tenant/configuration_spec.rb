@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe SolidusActAsTenant::Configuration do
+RSpec.describe SolidusActsAsTenant::Configuration do
   let(:configuration) { described_class.new }
 
   describe 'default values' do

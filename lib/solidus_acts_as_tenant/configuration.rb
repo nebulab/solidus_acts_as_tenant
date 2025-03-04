@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SolidusActAsTenant
+module SolidusActsAsTenant
   class Configuration
     attr_accessor :tenant_aware_models
     attr_writer :tenant_column_name, :acts_as_tenant_args, :class_name

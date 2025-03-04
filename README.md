@@ -1,7 +1,7 @@
-# Solidus Act As Tenant
+# Solidus Acts As Tenant
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/nebulab/solidus_acts_as_tenant/tree/Add-acts_as_tenant-to-Solidus.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nebulab/solidus_acts_as_tenant/tree/Add-acts_as_tenant-to-Solidus)
-[![codecov](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant/branch/main/graph/badge.svg)](https://codecov.io/gh/solidusio-contrib/solidus_act_as_tenant)
+[![CircleCI](https://circleci.com/gh/nebulab/solidus_acts_as_tenant.svg?style=shield)](https://circleci.com/gh/nebulab/solidus_acts_as_tenant)
+[![codecov](https://codecov.io/gh/nebulab/solidus_acts_as_tenant/branch/main/graph/badge.svg)](https://codecov.io/gh/nebulab/solidus_acts_as_tenant)
 
 
 This extension adds multi-tenant support to solidus using the row-level tenancy [acts_as_tenant](https://github.com/ErwinM/acts_as_tenant/commits/master/) gem.
@@ -10,16 +10,16 @@ It adds tenant scoping to a configurabale set of models and adds a console utili
 
 ## Installation
 
-Add solidus_act_as_tenant to your Gemfile:
+Add solidus_acts_as_tenant to your Gemfile:
 
 ```ruby
-gem 'solidus_act_as_tenant'
+gem 'solidus_acts_as_tenant'
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
-bin/rails generate solidus_act_as_tenant:install
+bin/rails generate solidus_acts_as_tenant:install
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ To use it, you can add it to your `~/.irbrc` file or `~/.pryrc` file:
 
 ```ruby
 if defined?(Rails)
-  TS = SolidusActAsTenant::Utils::TenantSelector.new
+  TS = SolidusActsAsTenant::Utils::TenantSelector.new
 
   IRB.conf[:IRB_RC] = proc do
     #   * TS.ask             => anytime in console, to switch tenant from a list
@@ -72,7 +72,7 @@ When testing your application's integration with this extension you may use its 
 You can load Solidus core factories along with this extension's factories using this statement:
 
 ```ruby
-SolidusDevSupport::TestingSupport::Factories.load_for(SolidusActAsTenant::Engine)
+SolidusDevSupport::TestingSupport::Factories.load_for(SolidusActsAsTenant::Engine)
 ```
 
 ### Running the sandbox
