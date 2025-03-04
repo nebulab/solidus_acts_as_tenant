@@ -16,7 +16,7 @@ module SolidusActsAsTenant
       g.test_framework :rspec
     end
 
-    config.after_initialize do
+    config.to_prepare do
       SolidusActsAsTenant::TenantAware.setup_tenant_aware_models
     end
   end
