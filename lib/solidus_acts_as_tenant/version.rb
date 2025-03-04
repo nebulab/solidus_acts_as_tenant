@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module SolidusActAsTenant
-  VERSION = '0.0.4'
+module SolidusActsAsTenant
+  VERSION = '0.0.5'
 end
