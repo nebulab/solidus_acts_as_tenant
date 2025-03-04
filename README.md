@@ -1,6 +1,5 @@
 # Solidus Acts As Tenant
 
-[![CircleCI](https://circleci.com/gh/nebulab/solidus_acts_as_tenant.svg?style=shield)](https://circleci.com/gh/nebulab/solidus_acts_as_tenant)
 [![codecov](https://codecov.io/gh/nebulab/solidus_acts_as_tenant/branch/main/graph/badge.svg)](https://codecov.io/gh/nebulab/solidus_acts_as_tenant)
 
 
