@@ -22,9 +22,12 @@
   # These are not needed at all as they are internal to Solidus (and may cause issues):
     # [Spree::OrderMutex, []],
 
+  # The user model conflicts with devise, so it is not included here.
+  # But it may be included if the TenantNotSet error is bypassed using the config added on this fork's branch:
+  # https://github.com/nebulab/acts_as_tenant/tree/Pass-the-ar-relation-for-context-to-should_require_tenant
+    # [<%= ::Spree.user_class.to_s %>, []]
 
 ---
-- [<%= ::Spree.user_class.to_s %>, [email]]
 - [Spree::Address, []]
 - [Spree::AdjustmentReason, [name, code]]
 - [Spree::Adjustment, []]
