@@ -96,7 +96,7 @@ class AddTenantIdToSolidusTables < ActiveRecord::Migration[7.0]
 
   def down
     TABLES.each do |table|
-      remove_index table
+      remove_index table, ::SolidusActsAsTenant.config.tenant_column_name
       remove_column table, ::SolidusActsAsTenant.config.tenant_column_name
     end
   end
